@@ -1,0 +1,146 @@
+//切图数值转化
+$divide: 18;
+$ppr: 720px/$divide/1rem;
+$pprVal: 720/18;
+
+$btnGr: #6c2;
+$btnO: #ff7e45;
+$btnB: #2aabee;
+$btnR: #f96d6d;
+$btnY: #fcbd3d;
+$btnSpecial: #45ba46;
+
+$fontCm: #333;
+$fontCs: #999;
+$bgC: #f0f0f0;
+$border:#e0e0e0;
+
+$fontHeader: 36px/$ppr;
+$fontTitle: 34px/$ppr;
+$fontCont: 30px/$ppr;
+$fontSupport: 24px/$ppr;
+$fontMin: 22px/$ppr;
+
+
+
+//以下三种暂时不使用
+$fontTrans: 28px/$ppr;
+$fontDate: 19px/$ppr;
+$fontEnPageT:26px/$ppr;
+
+
+$borderRadius:20px/$ppr;
+$whiteC:#fff;
+$blackC:#000;
+
+$gifFontC:#876916;
+$giftBg:#fffccc;
+$giftN:#a6de45;
+
+$inputC:#d0d0d0;
+
+//仅抽奖页面使用
+$luckyC:#2e1772;
+$luckyCr:#fe4e4e;
+$luckyCy:#fecb18;
+$luckyCg:#1bb7e8;
+
+$luckyCt:#ff8045;
+
+//英语
+$EnPageC:#fcf3eb;
+
+$enSyncProAllC:#d7f6c2;
+$enSyncProNowC:#ffef00;
+$audioBg:#f2eda3;
+$audioProAll:#fffcd2;
+
+$blankC:#626262;
+//math
+$color:#2aabee;
+$color_low:#76c8f5;
+$colorMaAll:#cdeafa;
+$border:#dcdcdc;
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function addRemUnit($val, $unit: px) {
+  @if $val !=0 {
+    $val: $val/$pprVal;
+    $val: $val + rem;
+  }
+  @return $val;
+}
+
+// clearfix
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: block;
+    height:0;
+    overflow: hidden;
+    clear: both;
+  }
+}
+
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+}
+
+
+
+@mixin arrTop($width:5px , $color:$border){
+  display: inline-block;
+  height:0px;
+  width:0px;
+  overflow:hidden;
+  border-width:$width;
+  vertical-align:bottom;
+  border-style:dashed dashed solid dashed;
+  border-color:transparent transparent $color transparent;
+}
+@mixin arrBottom($width:5px , $color:$border){
+  display: inline-block;
+  height:0px;
+  width:0px;
+  overflow:hidden;
+  border-width:$width;
+  vertical-align:bottom;
+  border-style:solid dashed dashed dashed;
+  border-color: $color transparent transparent transparent;
+}
+@mixin arrLeft($width:5px , $color:$border){
+  display: inline-block;
+  height:0px;
+  width:0px;
+  overflow:hidden;
+  border-width:$width;
+  vertical-align:bottom;
+  border-style:dashed solid dashed dashed;
+  border-color:transparent $color transparent transparent
+}
+@mixin arrRight($width:5px , $color:$border){
+  display: inline-block;
+  height:0px;
+  width:0px;
+  overflow:hidden;
+  border-width:$width;
+  vertical-align:bottom;
+  border-style:dashed dashed dashed solid;
+  border-color:transparent transparent transparent $color;
+}
